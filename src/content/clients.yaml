@@ -1,0 +1,23 @@
+# ─────────────────────────────────────────────────────────────
+# CLIENTS / COMPANIES WE'VE WORKED WITH
+# Only status: verified entries are shown. The section hides itself if the list is empty.
+# No logo file = the company name is shown as a text wordmark.
+# To use a logo: save it in src/assets/images/clients/ and add  logo: clients/file.png
+# Do not claim a partnership. Only list companies that have worked with Anushri Systems.
+# ─────────────────────────────────────────────────────────────
+
+items:
+  - { id: innovista-automation,  status: verified, name: Innovista Automation }
+  - { id: kirloskar-oil-engines, status: verified, name: Kirloskar Oil Engines }
+  - { id: shanti-technocrats,    status: verified, name: Shanti Technocrats }
+  - { id: menon-and-menon,       status: verified, name: Menon and Menon }
+  - { id: maharashtra-engineering, status: verified, name: Maharashtra Engineering }
+  - { id: sound-casting,         status: verified, name: Sound Casting }
+
+# TEMPLATE for more:
+# - id: example-industries
+#   status: verified
+#   name: Company Name
+#   logo: clients/example.png   # optional
+#   industry: Optional industry
+#   note: Optional one-line description of the work

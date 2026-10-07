@@ -1,0 +1,21 @@
+# ─────────────────────────────────────────────────────────────
+# PROJECT TEMPLATE. Files starting with "_" are ignored by the website.
+# To add a project: copy this file, rename it (e.g. packaging-line-upgrade.yaml),
+# fill every field with REAL information and set status: verified.
+# ─────────────────────────────────────────────────────────────
+
+status: placeholder        # change to "verified" to publish
+name: Project name
+industry: Industry (e.g. packaging, foundry...)
+client: null               # optional, only with the client's permission
+summary: One or two sentences for the card.
+description: >-
+  Fuller description shown in the detail panel.
+technologies:              # e.g. PLC, HMI, SCADA, Servo, Robot
+  - PLC
+plcPlatform: null          # e.g. Siemens
+robotPlatform: null        # e.g. FANUC
+services:                  # service titles delivered
+  - Programming Support
+images: []                 # e.g. [ { src: projects/example-1.jpg, alt: "Describe the photo" } ]
+results: null              # ONLY verified outcomes

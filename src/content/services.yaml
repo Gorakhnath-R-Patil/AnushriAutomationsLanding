@@ -1,0 +1,109 @@
+# ─────────────────────────────────────────────────────────────
+# SERVICES - all VERIFIED from the company brief.
+# To add a service: copy one block, give it a new unique id.
+# icon must be one of: plc, robot, servo, panel, commissioning, recondition, modify, support
+# whatsappMessage = pre-written WhatsApp text opened by that service's WhatsApp button
+# featured: true = large 2x2 tile, wide: true = 2-column tile
+# ─────────────────────────────────────────────────────────────
+
+items:
+  - id: plc-hmi-scada
+    status: verified
+    title: PLC / HMI / SCADA
+    icon: plc
+    featured: true
+    photo: plc-siemens
+    summary: Industrial control programming, HMI development, SCADA configuration and machine automation.
+    points:
+      - PLC programming
+      - HMI programming
+      - SCADA programming
+      - Machine control programming
+      - Automation troubleshooting
+    requirementType: PLC Programming
+    whatsappMessage: "Hello Anushri Systems, I need PLC / HMI / SCADA programming. PLC make and model: "
+
+  - id: robotics
+    status: verified
+    title: Robotics
+    icon: robot
+    photo: robot-pick-place
+    summary: Programming and automation support for Delta, FANUC and Yaskawa industrial robots.
+    points:
+      - Robot programming
+      - Delta · FANUC · Yaskawa
+    requirementType: Robotics
+    whatsappMessage: "Hello Anushri Systems, I need robot programming support. Robot make (Delta / FANUC / Yaskawa): "
+
+  - id: servo
+    status: verified
+    title: Servo Programming
+    icon: servo
+    summary: Motion-control and servo programming for automated machinery.
+    points:
+      - Servo programming
+      - Motion control
+    requirementType: Servo Programming
+    whatsappMessage: "Hello Anushri Systems, I need servo / motion-control programming for my machine. Servo drive make: "
+
+  - id: panel-wiring
+    status: verified
+    title: Panel Wiring
+    icon: panel
+    summary: PCC, MCC and PLC control panel wiring.
+    points:
+      - PCC panels
+      - MCC panels
+      - PLC panels
+    requirementType: Panel Wiring
+    whatsappMessage: "Hello Anushri Systems, I need control panel wiring (PCC / MCC / PLC panel). Panel type: "
+
+  - id: commissioning
+    status: verified
+    title: Site Commissioning
+    icon: commissioning
+    summary: On-site commissioning, testing, troubleshooting and machine startup support.
+    points:
+      - Installation support
+      - Testing and troubleshooting
+      - Machine startup assistance
+    requirementType: Site Commissioning
+    whatsappMessage: "Hello Anushri Systems, I need site commissioning support for a machine. Site location: "
+
+  - id: reconditioning
+    status: verified
+    title: Machine Reconditioning
+    icon: recondition
+    summary: Automation-related refurbishment and modernization of existing machines.
+    points:
+      - Refurbishment
+      - Modernization
+      - Restoration of control systems
+    requirementType: Machine Reconditioning
+    whatsappMessage: "Hello Anushri Systems, I have an existing machine that needs reconditioning or control-system modernization. Machine: "
+
+  - id: modification
+    status: verified
+    title: Machine Modification
+    icon: modify
+    summary: PLC and HMI changes, automation upgrades and machine-control modifications.
+    points:
+      - Existing machine modification
+      - PLC program modification
+      - HMI modification
+      - Automation upgrades
+    requirementType: Machine Modification
+    whatsappMessage: "Hello Anushri Systems, I need a PLC / HMI program change or modification on my existing machine. Machine: "
+
+  - id: support
+    status: verified
+    title: Programming Support
+    icon: support
+    wide: true
+    summary: Troubleshooting, program modifications and ongoing automation support.
+    points:
+      - Troubleshooting
+      - Program modifications
+      - Programming support
+    requirementType: Programming Support
+    whatsappMessage: "Hello Anushri Systems, I need programming support or troubleshooting for a machine. Problem: "

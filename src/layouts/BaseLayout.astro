@@ -1,0 +1,64 @@
+---
+import '@fontsource/ibm-plex-sans/latin-400.css';
+import '@fontsource/ibm-plex-sans/latin-500.css';
+import '@fontsource/ibm-plex-sans/latin-600.css';
+import '@fontsource/ibm-plex-sans/latin-700.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '@fontsource/ibm-plex-mono/latin-500.css';
+import '../styles/global.css';
+import { company, services } from '../lib/content';
+
+interface Props { title?: string; description?: string; noindex?: boolean }
+const { title = company.seo.title, description = company.seo.description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, company.site.url).href;
+const ogImage = new URL(company.seo.ogImage, company.site.url).href;
+
+// LocalBusiness structured data: only verified facts. No ratings or review counts.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: company.company.name,
+  description: company.seo.description,
+  url: company.site.url,
+  telephone: company.contact.phoneTel,
+  email: company.contact.email,
+  founder: { '@type': 'Person', name: company.owner.name },
+  areaServed: { '@type': 'AdministrativeArea', name: company.location.region },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: company.location.locality,
+    addressRegion: company.location.region,
+    addressCountry: company.location.countryCode,
+  },
+  makesOffer: services.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.title, description: s.summary } })),
+};
+---
+<!doctype html>
+<html lang={company.site.language} class="no-js-yet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b0f14" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={company.company.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>document.documentElement.className = 'js';</script>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+  </body>
+</html>

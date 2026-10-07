@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+import { site, links } from '../lib/content';
+const a = site.about;
+---
+<section id="about" class="section section--white" aria-labelledby="about-title" data-wa-msg={links.waText('about')}>
+  <div class="container about">
+    <div class="reveal">
+      <span class="eyebrow">{a.eyebrow}</span>
+      <h2 class="h2" id="about-title">{a.heading}</h2>
+      <p class="lead">{a.body}</p>
+      <p class="about__owner">{a.ownerLine}</p>
+      <div class="btn-row" style="margin-top:24px"><a class="btn btn--wa" href={links.waFor('about')} target="_blank" rel="noopener"><Icon name="whatsapp" />Talk to Amol on WhatsApp</a></div>
+    </div>
+    <div class="reveal" style="--d:120ms">
+      <p class="lifecycle__intro">{a.lifecycleIntro}</p>
+      <ol class="lifecycle">
+        {a.lifecycle.map((l, i) => <li data-n={`0${i + 1}`}>{l}</li>)}
+      </ol>
+    </div>
+  </div>
+</section>

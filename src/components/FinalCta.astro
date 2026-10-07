@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import { site, company, links } from '../lib/content';
+const f = site.finalCta;
+---
+<section class="section--dark section grid-bg final" aria-labelledby="final-title" data-wa-msg={links.waText('finalCta')}>
+  <div class="container reveal">
+    <h2 id="final-title">{f.heading}</h2>
+    <p>{f.body}</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="#quote">Request a Quote<Icon name="arrow" /></a>
+      <a class="btn btn--wa" href={links.waFor('finalCta')} target="_blank" rel="noopener"><Icon name="whatsapp" />WhatsApp Us</a>
+      <a class="btn btn--ghost" href={links.tel}><Icon name="phone" />Call {company.contact.phoneDisplay}</a>
+    </div>
+  </div>
+</section>

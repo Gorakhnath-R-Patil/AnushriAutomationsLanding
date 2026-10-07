@@ -1,0 +1,15 @@
+---
+import { statistics } from '../lib/content';
+---
+{statistics.length > 0 && (
+  <section class="section--panel stats" aria-label="Company figures">
+    <div class="container stats__grid">
+      {statistics.map((s, i) => (
+        <div class="stat reveal" style={`--d:${i * 100}ms`}>
+          <div class="stat__value" data-count={s.value} data-prefix={s.prefix ?? ''} data-suffix={s.suffix ?? ''}>{s.prefix}{s.value}{s.suffix}</div>
+          <div class="stat__label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+)}

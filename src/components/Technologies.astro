@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import { site, technologies, links } from '../lib/content';
+const t = site.technologies;
+---
+<section id="technologies" class="section--dark section grid-bg" aria-labelledby="tech-title" data-wa-msg={links.waText('technologies')}>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{t.eyebrow}</span>
+      <h2 class="h2" id="tech-title">{t.heading}</h2>
+      <p class="lead">{t.intro}</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Technology categories" data-tabs>
+      {technologies.map((g, i) => (
+        <button class="tab" role="tab" type="button" id={`tab-${g.id}`} aria-controls={`panel-${g.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{g.title}</button>
+      ))}
+    </div>
+    {technologies.map((g, i) => (
+      <div class="tech-panel reveal" role="tabpanel" id={`panel-${g.id}`} aria-labelledby={`tab-${g.id}`} data-panel>
+        <h3>{g.title}</h3>
+        <p>{g.description}</p>
+        <ul class="badges">
+          {g.items.map((it) => (
+            <li class="badge">{it.name}{it.note && <small>{it.note}</small>}</li>
+          ))}
+        </ul>
+        <a class="btn btn--wa btn--sm" style="margin-top:24px" href={links.whatsappWith(g.whatsappMessage ?? links.waText('technologies'))} target="_blank" rel="noopener"><Icon name="whatsapp" />Ask about your {g.title.toLowerCase()} on WhatsApp</a>
+      </div>
+    ))}
+    <p class="disclaimer">{t.disclaimer}</p>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import Icon from './Icon.astro';
+import { company, links } from '../lib/content';
+const quick = [['Home', '#home'], ['About', '#about'], ['Services', '#services'], ['Projects', '#projects'], ['Contact', '#contact']];
+---
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <strong style="color:#fff;letter-spacing:.12em">{company.company.nameUpper}</strong>
+        <p style="margin-top:6px">{company.company.tagline}</p>
+        <p class="footer__services">PLC · HMI · SCADA · Robotics · Servo · Panel Wiring · Commissioning · Machine Modification</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>{company.location.display}</li>
+          <li><a href={links.tel}>{company.contact.phoneDisplay}</a></li>
+          <li><a href={links.mailto}>{company.contact.email}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>{quick.map(([l, h]) => <li><a href={h}>{l}</a></li>)}</ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© {company.company.copyrightYear} {company.company.name}. All rights reserved.</span>
+      <span>Brand names belong to their respective owners. Photos are illustrative stock images: <a href="/credits/" style="min-height:0;text-decoration:underline">image credits</a>.</span>
+    </div>
+  </div>
+</footer>
+<a class="fab" href={links.waFor('default')} data-wa-number={company.contact.whatsappNumber} data-wa-default={links.waText('default')} target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><Icon name="whatsapp" /></a>

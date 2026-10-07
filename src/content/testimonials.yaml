@@ -1,0 +1,47 @@
+# ─────────────────────────────────────────────────────────────
+# CUSTOMER REVIEWS
+# Currently EMPTY: the site shows an honest "feedback is collected" message.
+# NEVER write a review yourself. Only add real, approved reviews.
+# ─────────────────────────────────────────────────────────────
+
+items: []
+
+# TEMPLATE:
+# - id: review-1
+#   status: verified           # verified only with the customer's permission
+#   quote: The exact words of the customer.
+#   name: Customer Name
+#   company: Company Name
+#   role: Optional designation
+#   logo: clients/example.png  # optional
+
+# ─────────────────────────────────────────────────────────────
+# SAMPLES: LAYOUT PREVIEW ONLY. Fake text, never published.
+# Shown only while running the dev server (npm run dev) with a red SAMPLE badge.
+# The production build (npm run build / Netlify) ignores this list entirely.
+# ─────────────────────────────────────────────────────────────
+samples:
+  - id: sample-1
+    status: placeholder
+    quote: "Sample text: example of how a customer review about PLC programming and commissioning will look in this carousel."
+    name: Sample Customer
+    company: Sample Company Pvt. Ltd.
+    role: Plant Manager
+  - id: sample-2
+    status: placeholder
+    quote: "Sample text: example of a review about a machine modification and quick troubleshooting support."
+    name: Sample Customer
+    company: Sample Industries
+    role: Maintenance Head
+  - id: sample-3
+    status: placeholder
+    quote: "Sample text: example of a review about control panel wiring and site commissioning."
+    name: Sample Customer
+    company: Sample Engineering Works
+    role: Production Manager
+  - id: sample-4
+    status: placeholder
+    quote: "Sample text: example of a review about robot programming and servo motion control."
+    name: Sample Customer
+    company: Sample Automation Ltd.
+    role: Engineering Manager

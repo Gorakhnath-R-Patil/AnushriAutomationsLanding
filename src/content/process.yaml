@@ -1,0 +1,7 @@
+# HOW WE WORK - 5 steps (VERIFIED wording from the brief)
+steps:
+  - { id: understand, status: verified, number: "01", title: Understand, text: Understand the machine, process and automation requirement. }
+  - { id: engineer,   status: verified, number: "02", title: Engineer,   text: Develop or modify the required control and programming solution. }
+  - { id: integrate,  status: verified, number: "03", title: Integrate,  text: "Integrate PLC, HMI, SCADA, servo, robot and control-panel systems as required." }
+  - { id: commission, status: verified, number: "04", title: Commission, text: Test and commission the system on-site. }
+  - { id: support,    status: verified, number: "05", title: Support,    text: Provide programming support, troubleshooting and future machine modifications. }

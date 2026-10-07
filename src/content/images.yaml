@@ -1,0 +1,53 @@
+# ─────────────────────────────────────────────────────────────
+# PHOTO CATALOG: alt text, captions and licence credits.
+# These are LICENSED STOCK photos (Wikimedia Commons), NOT Anushri Systems' own work.
+# They are always labelled "illustrative". Replace with real company photos when available:
+# drop the new file into src/assets/images/ and change `file` below.
+# Attribution is required by the licences and is shown on /credits/.
+# ─────────────────────────────────────────────────────────────
+
+items:
+  - id: robot-welding
+    file: stock/robot-welding.jpg
+    alt: Yellow industrial robot arm performing arc welding on a steel beam
+    caption: Industrial robot welding cell
+    author: Phasmatisnox
+    license: CC BY 3.0
+    licenseUrl: https://creativecommons.org/licenses/by/3.0
+    source: "https://commons.wikimedia.org/wiki/File:FANUC_welding_robot_reaching.jpg"
+
+  - id: robot-pick-place
+    file: stock/robot-pick-place.jpg
+    alt: Yellow industrial robot arm picking parts from a crate beside a control cabinet
+    caption: Industrial robot pick-and-place cell
+    author: Mixabest
+    license: CC BY-SA 3.0
+    licenseUrl: https://creativecommons.org/licenses/by-sa/3.0
+    source: "https://commons.wikimedia.org/wiki/File:FANUC_INTELLIGENT_ROBOT_017.jpg"
+
+  - id: panel-plc
+    file: stock/panel-plc-mitsubishi.jpg
+    alt: Open industrial control panel with PLC, relays, contactors and wiring on DIN rails
+    caption: PLC control panel wiring
+    author: Mixabest
+    license: CC BY-SA 3.0
+    licenseUrl: https://creativecommons.org/licenses/by-sa/3.0
+    source: "https://commons.wikimedia.org/wiki/File:MITSIBISHI_PLC_Panel.jpg"
+
+  - id: plc-siemens
+    file: stock/plc-siemens-s7-1500.jpg
+    alt: Siemens SIMATIC S7-1500 PLC with CPU display and I/O modules mounted in a cabinet
+    caption: PLC controller and I/O modules
+    author: Palatinatian
+    license: CC BY 3.0
+    licenseUrl: https://creativecommons.org/licenses/by/3.0
+    source: "https://commons.wikimedia.org/wiki/File:S71500.JPG"
+
+  - id: scada-room
+    file: stock/scada-control-room.jpg
+    alt: Plant control room with operator consoles and multiple SCADA monitors
+    caption: SCADA control room
+    author: Z22
+    license: CC BY-SA 4.0
+    licenseUrl: https://creativecommons.org/licenses/by-sa/4.0
+    source: "https://commons.wikimedia.org/wiki/File:NEWater_S.C.A.D.A._room.jpg"

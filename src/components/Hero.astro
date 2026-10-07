@@ -1,0 +1,50 @@
+---
+import Icon from './Icon.astro';
+import { Image } from 'astro:assets';
+import { site, company, links, services, photo } from '../lib/content';
+const bg = photo('robot-welding');
+
+const { hero } = site;
+const titleOf = (id: string) => services.find((s) => s.id === id)?.title ?? 'Services';
+// Headline: highlight the second sentence.
+const [first, ...rest] = hero.headline.split('. ');
+---
+<section id="home" class="section--dark hero grid-bg" aria-labelledby="hero-title" data-wa-msg={links.waText('hero')}>
+  {bg && <Image class="hero__bg" src={bg.meta} alt="" widths={[800, 1280, 1920]} sizes="100vw" loading="eager" fetchpriority="high" aria-hidden="true" />}
+  <div class="container hero__grid">
+    <div>
+      <span class="eyebrow">{hero.eyebrow}</span>
+      <h1 id="hero-title">{first}. <span>{rest.join('. ')}</span></h1>
+      <p class="hero__body">{hero.body}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="#quote">{hero.primaryCta}<Icon name="arrow" /></a>
+        <a class="btn btn--wa" href={links.waFor('hero')} target="_blank" rel="noopener"><Icon name="whatsapp" />{hero.secondaryCta}</a>
+      </div>
+      <p class="hero__note">
+        <a href={links.tel}>{company.contact.phoneDisplay}</a>
+        <span>{company.location.display}</span>
+      </p>
+    </div>
+
+    <div class="flow" id="flow" role="group" aria-label="Automation signal flow: PLC to HMI to SCADA to Servo to Robot to Machine">
+      <div class="flow__bar"><span>Automation chain</span><span class="flow__lamp">Live</span></div>
+      <div class="flow__chain">
+        {hero.flow.map((n, i) => (
+          <>
+            <button type="button" class:list={['flow__node', i === 0 && 'is-active']} data-node={n.id} data-caption={n.caption} data-service={n.service} data-service-title={titleOf(n.service)} aria-pressed={i === 0 ? 'true' : 'false'}>
+              <span class="flow__icon"><Icon name={['plc','hmi','scada','servo','robot','machine'].includes(n.id) ? n.id : 'plc'} /></span>
+              <span><span class="flow__label">{n.label}</span><span class="flow__cap">{n.caption}</span></span>
+              <span class="flow__idx">0{i + 1}</span>
+            </button>
+            {i < hero.flow.length - 1 && <div class="flow__wire" aria-hidden="true"></div>}
+          </>
+        ))}
+      </div>
+      <div class="flow__readout" aria-live="polite">
+        <span class="flow__tag" data-readout-tag>Stage 01</span>
+        <p data-readout-text>{hero.flow[0].caption}</p>
+        <a href={`#${hero.flow[0].service}`} data-readout-link>View {titleOf(hero.flow[0].service)} <Icon name="arrow" class="" /></a>
+      </div>
+    </div>
+  </div>
+</section>

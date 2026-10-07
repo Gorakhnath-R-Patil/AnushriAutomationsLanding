@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+import { site, steps, links } from '../lib/content';
+const p = site.process;
+---
+<section id="process" class="section--panel section" aria-labelledby="process-title" data-wa-msg={links.waText('process')}>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{p.eyebrow}</span>
+      <h2 class="h2" id="process-title">{p.heading}</h2>
+    </div>
+    <ol class="steps" data-steps>
+      {steps.map((s) => (
+        <li class="step">
+          <span class="step__no">{s.number}</span>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
+    <div class="btn-row" style="margin-top:12px"><a class="btn btn--wa" href={links.waFor('process')} target="_blank" rel="noopener"><Icon name="whatsapp" />Start with Step 01 on WhatsApp</a></div>
+  </div>
+</section>

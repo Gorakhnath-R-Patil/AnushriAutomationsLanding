@@ -1,0 +1,72 @@
+---
+import Icon from './Icon.astro';
+import { site, company, links } from '../lib/content';
+const q = site.quote;
+---
+<section id="quote" class="section--dark section grid-bg" aria-labelledby="quote-title" data-wa-msg={links.waText('quote')}>
+  <div class="container quote">
+    <div class="quote__side reveal">
+      <span class="eyebrow">{q.eyebrow}</span>
+      <h2 class="h2" id="quote-title">{q.heading}</h2>
+      <p class="lead">{q.body}</p>
+      <ul>
+        <li><Icon name="check" /><span>Describe the machine, PLC or robot and what you need done.</span></li>
+        <li><Icon name="check" /><span>Choose how you would like us to reach you: phone, WhatsApp or email.</span></li>
+        <li><Icon name="check" /><span>{q.attachmentNote}</span></li>
+      </ul>
+    </div>
+
+    <form class="form reveal" name="quote" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" novalidate data-quote-form data-wa={company.contact.whatsappNumber} data-company={company.company.name} data-tel={company.contact.phoneTel} data-phone={company.contact.phoneDisplay} data-email={company.contact.email}>
+      <input type="hidden" name="form-name" value="quote" />
+      <p class="hp" aria-hidden="true"><label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+      <div class="field">
+        <label for="q-name">Name <span class="req" aria-hidden="true">*</span></label>
+        <input id="q-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name" />
+        <span class="error" id="e-name" role="alert"></span>
+      </div>
+      <div class="field">
+        <label for="q-company">Company</label>
+        <input id="q-company" name="company" type="text" autocomplete="organization" />
+      </div>
+      <div class="field">
+        <label for="q-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+        <input id="q-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="e-phone" />
+        <span class="error" id="e-phone" role="alert"></span>
+      </div>
+      <div class="field">
+        <label for="q-email">Email <span class="req" aria-hidden="true">*</span></label>
+        <input id="q-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email" />
+        <span class="error" id="e-email" role="alert"></span>
+      </div>
+      <div class="field">
+        <label for="q-type">Requirement type</label>
+        <select id="q-type" name="requirement_type">
+          {q.requirementTypes.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="q-system">PLC / Robot / System</label>
+        <input id="q-system" name="system" type="text" placeholder="e.g. Siemens S7-1200, FANUC robot" />
+      </div>
+      <div class="field full">
+        <label for="q-details">Project details <span class="req" aria-hidden="true">*</span></label>
+        <textarea id="q-details" name="details" required aria-describedby="e-details"></textarea>
+        <span class="error" id="e-details" role="alert"></span>
+      </div>
+      <fieldset class="field full radios">
+        <legend>Preferred contact method</legend>
+        <label><input type="radio" name="contact_method" value="Phone" checked /> Phone</label>
+        <label><input type="radio" name="contact_method" value="WhatsApp" /> WhatsApp</label>
+        <label><input type="radio" name="contact_method" value="Email" /> Email</label>
+      </fieldset>
+
+      <div class="full form__actions">
+        <button class="btn btn--primary" type="submit" data-submit>Send Enquiry</button>
+        <button class="btn btn--wa" type="button" data-wa-send><Icon name="whatsapp" />Send via WhatsApp</button>
+      </div>
+      <div class="full form__status" role="status" aria-live="polite" hidden data-status></div>
+      <p class="full form__fine">Required fields are marked *. Your details are used only to reply to your enquiry.</p>
+    </form>
+  </div>
+</section>

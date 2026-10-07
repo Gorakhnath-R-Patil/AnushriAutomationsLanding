@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Services from '../components/Services.astro';
+import Technologies from '../components/Technologies.astro';
+import Showcase from '../components/Showcase.astro';
+import About from '../components/About.astro';
+import Process from '../components/Process.astro';
+import Projects from '../components/Projects.astro';
+import Clients from '../components/Clients.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Quote from '../components/Quote.astro';
+import Contact from '../components/Contact.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout>
+  <Header />
+  <main id="main">
+    <Hero />
+    <Stats />
+    <Services />
+    <Technologies />
+    <Showcase />
+    <About />
+    <Process />
+    <Projects />
+    <Clients />
+    <Testimonials />
+    <Quote />
+    <Contact />
+    <FinalCta />
+  </main>
+  <Footer />
+  <script>
+    import '../scripts/main';
+  </script>
+</BaseLayout>

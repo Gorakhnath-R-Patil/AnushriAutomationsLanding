@@ -1,0 +1,18 @@
+---
+import { company } from '../lib/content';
+---
+<a class="logo" href="#home" aria-label={`${company.company.name} home`}>
+  <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
+    <rect x="1" y="1" width="38" height="38" rx="9" fill="#0b0f14" stroke="#3b92ff" stroke-width="1.5" />
+    <!-- stylised A built from a circuit trace -->
+    <path d="M10 30 L20 9 L30 30" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M14.5 23 H25.5" stroke="#3b92ff" stroke-width="3" stroke-linecap="round" />
+    <circle cx="20" cy="9" r="2.6" fill="#f5a524" />
+    <circle cx="10" cy="30" r="1.8" fill="#3b92ff" />
+    <circle cx="30" cy="30" r="1.8" fill="#3b92ff" />
+  </svg>
+  <span class="logo__text">
+    <span class="logo__name">{company.company.nameUpper}</span>
+    <span class="logo__desc">{company.company.descriptor}</span>
+  </span>
+</a>

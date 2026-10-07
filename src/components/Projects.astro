@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { site, projects, resolveImage, links, company } from '../lib/content';
+const p = site.projects;
+const cover = (proj: (typeof projects)[number]) => {
+  const first = proj.images?.[0];
+  const meta = resolveImage(first?.src);
+  return meta && first ? { meta, alt: first.alt } : null;
+};
+---
+<section id="projects" class="section" aria-labelledby="projects-title" data-wa-msg={links.waText('projects')}>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{p.eyebrow}</span>
+      <h2 class="h2" id="projects-title">{p.heading}</h2>
+      <p class="lead">{p.intro}</p>
+    </div>
+
+    {projects.length === 0 ? (
+      <div class="empty reveal">
+        <h3>{p.emptyTitle}</h3>
+        <p>{p.emptyBody}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#quote">Request a Quote</a>
+          <a class="btn btn--ghost" href={links.waFor('projects')} target="_blank" rel="noopener">Discuss Your Project</a>
+        </div>
+      </div>
+    ) : (
+      <>
+      <div class="cards">
+        {projects.map((proj) => {
+          const c = cover(proj);
+          return (
+            <button class="pcard reveal" type="button" data-project={proj.id} aria-haspopup="dialog">
+              {c && <Image src={c.meta} alt={c.alt} widths={[400, 700]} sizes="(min-width: 700px) 33vw, 100vw" loading="lazy" />}
+              <span class="pcard__body">
+                <span class="pcard__tag">{proj.industry}</span>
+                <h3>{proj.name}</h3>
+                <p>{proj.summary}</p>
+              </span>
+            </button>
+          );
+        })}
+      </div>
+      {projects.map((proj) => {
+        const imgs = (proj.images ?? []).map((i) => ({ meta: resolveImage(i.src), alt: i.alt })).filter((i) => i.meta);
+        return (
+          <dialog class="modal" id={`project-${proj.id}`} aria-labelledby={`pt-${proj.id}`}>
+            <button class="icon-btn modal__close" type="button" data-close aria-label="Close project details" style="color:#111;border-color:#c4cedb"><Icon name="close" /></button>
+            <div class="modal__body">
+              <span class="pcard__tag">{proj.industry}</span>
+              <h3 id={`pt-${proj.id}`} style="font-size:1.5rem">{proj.name}</h3>
+              {imgs[0] && <Image src={imgs[0].meta!} alt={imgs[0].alt} widths={[600, 900]} sizes="720px" loading="lazy" />}
+              <p>{proj.description}</p>
+              <dl class="meta">
+                <dt>Technology</dt><dd>{proj.technologies.join(' · ')}</dd>
+                {proj.plcPlatform && <><dt>PLC</dt><dd>{proj.plcPlatform}</dd></>}
+                {proj.robotPlatform && <><dt>Robot</dt><dd>{proj.robotPlatform}</dd></>}
+                <dt>Services</dt><dd>{proj.services.join(' · ')}</dd>
+                {proj.client && <><dt>Client</dt><dd>{proj.client}</dd></>}
+                {proj.results && <><dt>Result</dt><dd>{proj.results}</dd></>}
+              </dl>
+              <div class="btn-row">
+                <a class="btn btn--primary" href="#quote" data-close>Request a Quote</a>
+                <a class="btn btn--wa" href={links.whatsappWith(`Hello Anushri Systems, I saw your project "${proj.name}" and would like to discuss a similar requirement.`)} target="_blank" rel="noopener"><Icon name="whatsapp" />Discuss a similar project</a>
+              </div>
+            </div>
+          </dialog>
+        );
+      })}
+      </>
+    )}
+  </div>
+</section>

@@ -1,0 +1,30 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { links } from '../lib/content';
+
+const nav = [
+  ['Home', '#home'], ['Services', '#services'], ['About', '#about'], ['Technologies', '#technologies'],
+  ['Projects', '#projects'], ['Reviews', '#reviews'], ['Contact', '#contact'],
+];
+---
+<header class="header">
+  <div class="container header__inner">
+    <Logo />
+    <nav class="nav" aria-label="Primary">
+      {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--primary btn--sm header__cta" href="#quote">Get a Quote</a>
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+        <Icon name="menu" class="icon-open" /><Icon name="close" class="icon-close" />
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+    {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+    <a class="btn btn--primary" href="#quote">Get a Quote</a>
+    <a class="btn btn--wa" href={links.waFor('nav')} target="_blank" rel="noopener"><Icon name="whatsapp" />Chat on WhatsApp</a>
+    <a class="btn btn--ghost" href={links.tel}><Icon name="phone" />Call now</a>
+  </nav>
+</header>

@@ -1,0 +1,49 @@
+---
+import Icon from './Icon.astro';
+import { Image } from 'astro:assets';
+import { site, services, photo, links } from '../lib/content';
+const s = site.services;
+---
+<section id="services" class="section grid-bg--light" aria-labelledby="services-title" data-wa-msg={links.waText('services')}>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{s.eyebrow}</span>
+      <h2 class="h2" id="services-title">{s.heading}</h2>
+      <p class="lead">{s.intro}</p>
+    </div>
+    <div class="services">
+      {services.map((svc, i) => {
+        const ph = svc.photo ? photo(svc.photo) : undefined;
+        return (
+        <article id={svc.id} class:list={['service', 'reveal', svc.featured && 'service--featured', svc.wide && 'service--wide']} style={`--d:${(i % 4) * 80}ms`}>
+          {ph && (
+            <figure class="service__photo">
+              <Image src={ph.meta} alt={ph.alt} widths={[480, 800, 1000]} sizes="(min-width: 1000px) 40vw, 100vw" loading="lazy" />
+              <figcaption>Illustrative image</figcaption>
+            </figure>
+          )}
+          <div class="service__icon"><Icon name={svc.icon} /></div>
+          <h3>{svc.title}</h3>
+          <p class="service__summary">{svc.summary}</p>
+          <div class="service__more" id={`more-${svc.id}`}>
+            <div><ul class="service__points">{svc.points.map((p) => <li>{p}</li>)}</ul></div>
+          </div>
+          {svc.featured && !ph && (
+            <svg class="ladder" viewBox="0 0 420 150" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M10 8v134M410 8v134" />
+              <path d="M10 30h90M130 30h110M270 30h110" /><path d="M100 18v24M130 18v24" class="on" /><path d="M240 18v24M270 18v24" /><circle cx="395" cy="30" r="12" class="on" /><path d="M380 30h-0M407 30h3" />
+              <path d="M10 75h60M100 75h110M240 75h110" /><path d="M70 63v24M100 63v24" /><path d="M210 63v24M240 63v24" class="on" /><rect x="350" y="61" width="60" height="28" rx="4" />
+              <path d="M10 120h130M170 120h140" /><path d="M140 108v24M170 108v24" class="on" /><circle cx="335" cy="120" r="12" /><path d="M347 120h63" />
+            </svg>
+          )}
+          <div class="service__foot">
+            <a class="service__link" href="#quote" data-service={svc.requirementType}>Get a quote <Icon name="arrow" class="" /></a>
+            <a class="service__wa" href={links.whatsappWith(svc.whatsappMessage ?? `Hello Anushri Systems, I need help with ${svc.title}.`)} target="_blank" rel="noopener" aria-label={`Ask about ${svc.title} on WhatsApp`} title="Ask on WhatsApp"><Icon name="whatsapp" /></a>
+            <button class="service__toggle" type="button" aria-expanded="false" aria-controls={`more-${svc.id}`} aria-label={`Show details for ${svc.title}`}><Icon name="chevron" /></button>
+          </div>
+        </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

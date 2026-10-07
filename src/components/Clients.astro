@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import { site, clients, resolveImage } from '../lib/content';
+const c = site.clients;
+---
+{clients.length > 0 && (
+  <section id="clients" class="section section--white" aria-labelledby="clients-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">{c.eyebrow}</span>
+        <h2 class="h2" id="clients-title">{c.heading}</h2>
+      </div>
+      <ul class="logos">
+        {clients.map((cl, i) => {
+          const logo = resolveImage(cl.logo);
+          return (
+            <li class="logo-tile reveal" style={`--d:${(i % 3) * 80}ms`}>
+              {logo ? <Image src={logo} alt={cl.name} height={56} loading="lazy" /> : <span class="wordmark">{cl.name}</span>}
+              {cl.industry && <small>{cl.industry}</small>}
+              {cl.note && <small>{cl.note}</small>}
+            </li>
+          );
+        })}
+      </ul>
+      <p class="map__caption">Company names and logos belong to their respective owners. Listing does not imply any partnership or endorsement.</p>
+    </div>
+  </section>
+)}

@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { photo, links } from '../lib/content';
+const tiles = [
+  { id: 'panel-plc', cls: 'tile--tall' },
+  { id: 'scada-room', cls: '' },
+  { id: 'robot-welding', cls: '' },
+].map((t) => ({ ...t, p: photo(t.id) })).filter((t) => t.p);
+---
+{tiles.length > 0 && (
+  <section class="section--dark section" aria-labelledby="showcase-title" data-wa-msg={links.waText('showcase')}>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Control · Supervision · Motion</span>
+        <h2 class="h2" id="showcase-title">Systems we program, wire and commission</h2>
+        <p class="lead">PLC panels, SCADA supervision and industrial robots: the equipment at the centre of every automation project.</p>
+      </div>
+      <div class="showcase">
+        {tiles.map((t, i) => (
+          <figure class:list={['tile', 'reveal', t.cls]} style={`--d:${i * 100}ms`}>
+            <Image src={t.p!.meta} alt={t.p!.alt} widths={[480, 800, 1100]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+            <figcaption><strong>{t.p!.caption}</strong><span>Illustrative image</span></figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="btn-row" style="margin-top:28px"><a class="btn btn--wa" href={links.waFor('showcase')} target="_blank" rel="noopener"><Icon name="whatsapp" />Get Automation Support</a></div>
+    </div>
+  </section>
+)}

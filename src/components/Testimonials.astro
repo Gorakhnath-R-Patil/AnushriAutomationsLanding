@@ -1,0 +1,42 @@
+---
+import Icon from './Icon.astro';
+import { site, testimonials, sampleTestimonials, links, company } from '../lib/content';
+const t = site.testimonials;
+// Samples exist only in `npm run dev` for layout preview; they are empty in production builds.
+const isSample = testimonials.length === 0 && sampleTestimonials.length > 0;
+const list = testimonials.length ? testimonials : sampleTestimonials;
+---
+<section id="reviews" class="section--panel section" aria-labelledby="reviews-title" data-wa-msg={links.waText('reviews')}>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{t.eyebrow}</span>
+      <h2 class="h2" id="reviews-title">{t.heading}</h2>
+    </div>
+
+    {list.length === 0 ? (
+      <div class="empty reveal">
+        <h3>{t.emptyTitle}</h3>
+        <p>{t.emptyBody}</p>
+        <div class="btn-row">
+          <a class="btn btn--wa" href={links.waFor('reviews')} target="_blank" rel="noopener"><Icon name="whatsapp" />Get Automation Support</a>
+        </div>
+      </div>
+    ) : (
+      <div class="carousel" data-carousel>
+        <div class="carousel__track" tabindex="0" role="region" aria-label="Customer reviews">
+          {list.map((r) => (
+            <figure class="review" style="margin:0">
+              {isSample && <span class="sample-badge">SAMPLE · NOT A REAL REVIEW · dev preview only</span>}
+              <blockquote>“{r.quote}”</blockquote>
+              <figcaption><cite>{r.name}<small>{[r.role, r.company].filter(Boolean).join(', ')}</small></cite></figcaption>
+            </figure>
+          ))}
+        </div>
+        <div class="carousel__nav">
+          <button class="icon-btn" type="button" data-prev aria-label="Previous reviews"><Icon name="left" /></button>
+          <button class="icon-btn" type="button" data-next aria-label="Next reviews"><Icon name="right" /></button>
+        </div>
+      </div>
+    )}
+  </div>
+</section>

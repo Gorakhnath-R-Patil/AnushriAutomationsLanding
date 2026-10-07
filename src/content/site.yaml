@@ -1,0 +1,132 @@
+# ─────────────────────────────────────────────────────────────
+# PAGE COPY: hero, about, section intros, final CTA
+# All copy below is written from VERIFIED facts only.
+# ─────────────────────────────────────────────────────────────
+
+hero:
+  eyebrow: Kolhapur, Maharashtra
+  headline: Industrial Automation. Engineered for Performance.
+  body: >-
+    Anushri Systems provides industrial automation, PLC programming, robotics, SCADA,
+    HMI, servo programming, control panel wiring, commissioning and machine
+    modification services.
+  primaryCta: Request a Quote
+  secondaryCta: Talk to Us on WhatsApp
+  # Hero wiring diagram. Each node links to a service id in services.yaml.
+  flow:
+    - { id: plc,   label: PLC,   caption: Control logic,           service: plc-hmi-scada }
+    - { id: hmi,   label: HMI,   caption: Operator interface,      service: plc-hmi-scada }
+    - { id: scada, label: SCADA, caption: Supervision,             service: plc-hmi-scada }
+    - { id: servo, label: Servo, caption: Motion control,          service: servo }
+    - { id: robot, label: Robot, caption: Delta · FANUC · Yaskawa, service: robotics }
+    - { id: machine, label: Machine, caption: Commissioned and running, service: commissioning }
+
+about:
+  eyebrow: About
+  heading: Engineering the control behind your machines
+  body: >-
+    Anushri Systems is an industrial automation engineering company providing
+    programming, control, commissioning and machine modification solutions for
+    industrial applications.
+  lifecycleIntro: We work across the automation lifecycle
+  lifecycle:
+    - Programming
+    - Control
+    - Integration
+    - Commissioning
+    - Modification
+    - Support
+  ownerLine: Led by owner Amol Kamble from Hatkanagale, Kolhapur.
+
+services:
+  eyebrow: Services
+  heading: What we engineer
+  intro: From the first line of PLC code to on-site startup and later modifications.
+
+technologies:
+  eyebrow: Technologies
+  heading: Platforms we work on
+  intro: We program and support the following platforms.
+  disclaimer: >-
+    Brand names are used only to describe the platforms we work on and belong to
+    their respective owners. Anushri Systems is an independent service provider.
+
+process:
+  eyebrow: How we work
+  heading: From requirement to running machine
+
+projects:
+  eyebrow: Projects
+  heading: Our Projects
+  intro: >-
+    A growing portfolio of industrial automation, machine modification,
+    programming and commissioning projects.
+  emptyTitle: Project case studies are being prepared
+  emptyBody: >-
+    Have a machine or automation requirement? Tell us what you need and we will
+    review it.
+
+clients:
+  eyebrow: Clients
+  heading: Companies We've Worked With
+
+testimonials:
+  eyebrow: Reviews
+  heading: What customers say
+  emptyTitle: Customer feedback
+  emptyBody: >-
+    We collect feedback after our projects. Written reviews will be published here
+    once customers approve them.
+
+quote:
+  eyebrow: Request a Quote
+  heading: Let's Discuss Your Automation Requirement
+  body: >-
+    Tell us about your machine, automation requirement or modification work. Our
+    team will review your enquiry and get in touch.
+  requirementTypes:
+    - PLC Programming
+    - HMI / SCADA
+    - Robotics
+    - Servo Programming
+    - Panel Wiring
+    - Site Commissioning
+    - Machine Reconditioning
+    - Machine Modification
+    - Programming Support
+    - Other
+  attachmentNote: >-
+    Drawings, photos or program files can be sent to us on WhatsApp or by email.
+
+contact:
+  eyebrow: Contact
+  heading: Talk to Anushri Systems
+
+finalCta:
+  heading: Have an Automation Requirement?
+  body: >-
+    Whether you need PLC programming, robot programming, machine modification,
+    commissioning, panel wiring or technical programming support, talk to Anushri
+    Systems.
+
+# ─────────────────────────────────────────────────────────────
+# WHATSAPP PRE-WRITTEN MESSAGES
+# Each button opens WhatsApp with the text below already typed.
+# Messages ending in ": " let the visitor just add the missing detail.
+# The floating WhatsApp button also switches to the message of the section being viewed.
+# Service-specific messages live in services.yaml; platform ones in technologies.yaml.
+# ─────────────────────────────────────────────────────────────
+whatsapp:
+  default: "Hello Anushri Systems, I would like to know more about your industrial automation services."
+  nav: "Hello Anushri Systems, I would like to discuss an automation requirement."
+  hero: "Hello Anushri Systems, I would like to enquire about industrial automation services for my machine or plant."
+  services: "Hello Anushri Systems, I saw your services and would like to discuss my requirement."
+  technologies: "Hello Anushri Systems, I would like to check if you can work on my PLC / robot platform. Make and model: "
+  showcase: "Hello Anushri Systems, I need PLC panel, SCADA or robot support. Details: "
+  about: "Hello Anushri Systems, I would like to speak with Amol Kamble about an automation requirement."
+  process: "Hello Anushri Systems, I have a machine and would like to start with a requirement discussion."
+  projects: "Hello Anushri Systems, I would like to discuss a project similar to the ones in your portfolio."
+  reviews: "Hello Anushri Systems, I would like to get automation support for my machine."
+  quote: "Hello Anushri Systems, I would like a quotation for my automation requirement."
+  contact: "Hello Anushri Systems, I would like to contact you regarding an automation requirement."
+  finalCta: "Hello Anushri Systems, I have an automation requirement and would like a quote."

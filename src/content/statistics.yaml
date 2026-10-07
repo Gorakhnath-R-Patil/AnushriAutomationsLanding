@@ -1,0 +1,29 @@
+# ─────────────────────────────────────────────────────────────
+# STATISTICS
+# Only items with status: verified are shown.
+# NEVER add numbers (years, clients, employees...) unless the company supplied them.
+# ─────────────────────────────────────────────────────────────
+
+items:
+  - id: projects
+    status: verified
+    value: 100
+    prefix: ""
+    suffix: "+"
+    label: Projects Completed
+
+  - id: satisfaction
+    status: verified
+    value: 100
+    prefix: ""
+    suffix: "%"
+    label: Customer Satisfaction
+    # Basis (owner confirmed): customer feedback is collected and records are held by the company.
+    # Keep the supporting records on file in case the claim is ever questioned.
+
+  # PLACEHOLDER example (not shown until status is changed to verified and values are real):
+  # - id: years
+  #   status: placeholder
+  #   value: 0
+  #   suffix: "+"
+  #   label: Years of Experience

@@ -1,0 +1,62 @@
+# ─────────────────────────────────────────────────────────────
+# COMPANY, OWNER, CONTACT, LOCATION, SEO
+# Edit this file to change contact details everywhere on the site.
+# status: verified = supplied by the company
+#         placeholder = still to be supplied (NOT shown publicly)
+#         to-confirm = needs clarification
+# ─────────────────────────────────────────────────────────────
+
+company:
+  name: Anushri Systems          # VERIFIED
+  nameUpper: ANUSHRI SYSTEMS
+  descriptor: Industrial Automation & Engineering   # VERIFIED
+  tagline: Industrial Automation & Engineering Solutions
+  copyrightYear: 2026
+
+owner:
+  name: Amol Kamble              # VERIFIED
+  role: Owner                    # VERIFIED (owner / founder - confirm "Founder" wording)
+
+contact:
+  phoneDisplay: "+91 97655 87045"     # VERIFIED
+  phoneTel: "+919765587045"
+  whatsappNumber: "919765587045"      # digits only, used for wa.me
+  email: anushrisystems@gmail.com     # VERIFIED
+  # Working hours / emergency support: see CONTENT_TODO.md (not shown until supplied)
+
+location:
+  # VERIFIED: only the village/area is known. NO street address or GPS yet.
+  display: Hatkanagale, Kolhapur, Maharashtra, India
+  locality: Hatkanagale
+  district: Kolhapur
+  region: Maharashtra
+  country: India
+  countryCode: IN
+  # Used for the Google Maps "Get Directions" search link.
+  mapsQuery: Hatkanagale, Kolhapur, Maharashtra, India
+  # Approximate area only. Replace with exact coordinates once supplied.
+  # status: to-confirm
+  mapBbox: [74.37, 16.70, 74.47, 16.80]   # west, south, east, north  (AREA VIEW centred near Hatkanangale; no pin)
+  exactAddress: null                      # PLACEHOLDER
+  coordinates: null                       # PLACEHOLDER
+
+site:
+  # TO CONFIRM: no domain yet. Replace when a domain is bought.
+  url: https://anushrisystems.netlify.app
+  urlStatus: to-confirm
+  language: en-IN
+
+seo:
+  title: Anushri Systems | Industrial Automation & Engineering Solutions
+  description: >-
+    Anushri Systems, Kolhapur: industrial automation, PLC programming, HMI and SCADA,
+    robotics, servo programming, control panel wiring, commissioning and machine
+    modification for factories in Maharashtra.
+  keywords:
+    - industrial automation company in Kolhapur
+    - PLC programming Kolhapur
+    - HMI SCADA programming Kolhapur
+    - robot programming Kolhapur
+    - panel wiring Kolhapur
+    - machine modification Kolhapur
+  ogImage: /og-image.png

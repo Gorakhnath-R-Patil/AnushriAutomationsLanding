@@ -1,0 +1,39 @@
+# ─────────────────────────────────────────────────────────────
+# TECHNOLOGIES - VERIFIED. Do not add brands that are not confirmed.
+# Brands are shown as plain text badges (no logos, no partnership claims).
+# ─────────────────────────────────────────────────────────────
+
+groups:
+  - id: plc
+    status: verified
+    title: PLC Platforms
+    description: Programming and support across these PLC platforms.
+    whatsappMessage: "Hello Anushri Systems, I need PLC programming support. PLC make and model: "
+    items:
+      - { name: Siemens }
+      - { name: Mitsubishi }
+      - { name: Delta }
+      - { name: GOC, note: Graphic Operational Controller }
+
+  - id: robotics
+    status: verified
+    title: Industrial Robots
+    description: Industrial robot programming and automation support.
+    whatsappMessage: "Hello Anushri Systems, I need industrial robot programming support. Robot make and model: "
+    items:
+      - { name: Delta }
+      - { name: FANUC }
+      - { name: Yaskawa }
+
+  - id: automation
+    status: verified
+    title: Automation Technologies
+    description: The disciplines we bring together on a machine.
+    whatsappMessage: "Hello Anushri Systems, I need help with machine automation (PLC / HMI / SCADA / servo). My machine: "
+    items:
+      - { name: PLC }
+      - { name: HMI }
+      - { name: SCADA }
+      - { name: Servo }
+      - { name: Industrial Control }
+      - { name: Machine Automation }
